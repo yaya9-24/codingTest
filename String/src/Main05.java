@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main05 {
@@ -22,7 +21,7 @@ public class Main05 {
                 rt--;
             }
         }
-        answer = String.valueOf(c);
+        answer = String.valueOf(c); //String의 static 메서드이다.
         return answer;
     }
 
