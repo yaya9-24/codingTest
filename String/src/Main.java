@@ -1,32 +1,25 @@
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Main {
 
-    public String solution(String str){
+    public String solution(int n,String str){
         String answer = "";
-        char[] c = str.toCharArray();
-        int lt = 0, rt=str.length()-1;
-        while (rt>lt){
-            if (!Character.isAlphabetic(c[lt])) lt++;
-            else if (!Character.isAlphabetic(c[rt])) rt--;
-            else {
-                char tmp = c[lt];
-                c[lt] = c[rt];
-                c[rt] = tmp;
-                lt++;
-                rt--;
-            }
+        str = str.replace('#','1').replace('*','0');
+        //System.out.println(str);
+        for (int i = 0; i < n; i++) {
+            String tmp = str.substring(0,7);
+            answer += (char) Integer.parseInt(tmp,2);
+            str = str.substring(7);
         }
-        answer = String.valueOf(c);
-
         return answer;
     }
 
     public static void main(String[] args){
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        String str = kb.next();
-        System.out.print(T.solution(str));
+        int n = kb.nextInt(); // 4
+        String str = kb.next(); // #****###**#####**#####**##**
+        System.out.print(T.solution(n,str));
     }
 }
